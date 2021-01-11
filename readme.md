@@ -528,5 +528,48 @@ To https://github.com/cc-droid/git-learn.git
 Branch 'dev' set up to track remote branch 'dev' from 'dev'.
 ```
 
+# 七.开发环境切换问题
+
+场景：A在机器a上更改了许多代码，并提交到remote dev仓库，A在机器b上的分支只有master，需要在dev分支上继续开发
+
+过程：
+
+```shell
+$ git checkout dev
+error: pathspec 'dev' did not match any file(s) known to git
+/*tips:不能本地直接切换，需要add remote dev分支，再pull到本地dev分支*/
+git remote add dev https://github.com/cc-droid/git-learn.git
+$ git pull dev dev
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 1), reused 3 (delta 1), pack-reused 0
+Unpacking objects: 100% (3/3), 550 bytes | 91.00 KiB/s, done.
+From https://github.com/cc-droid/git-learn
+ * branch            dev        -> FETCH_HEAD
+ * [new branch]      dev        -> dev/dev
+Updating 047b1da..47a1760
+Fast-forward
+ readme.md | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
+ 
+ $ git checkout dev
+Switched to branch 'dev'
+
+$ git status
+On branch dev
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   readme.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+git add .
+git commit -m "切换工作环境，从remote拉取dev继续开发"
+```
+
+
+
 
 
