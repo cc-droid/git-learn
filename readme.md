@@ -483,5 +483,23 @@ Deleted branch dev (was f4a1ce5).
 
 这样便完成的v0.3开发和bug的修复，同时保证了主线master的一致性
 
+# 六.github管理代码
+
+- 创建github账号，创建git-learn仓库，push代码
+
+```
+$ git remote add origin https://github.com/cc-droid/git-learn.git
+$ git push -u origin master
+```
+
+- clone代码并创建dev分支进行开发
+
+```
+$ git clone https://github.com/cc-droid/git-learn.git
+  git branch dev
+  git checkout dev
+  
+```
+
 
 
