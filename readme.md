@@ -483,5 +483,50 @@ Deleted branch dev (was f4a1ce5).
 
 这样便完成的v0.3开发和bug的修复，同时保证了主线master的一致性
 
+# 六.github管理代码
+
+- 创建github账号，创建git-learn仓库，push代码
+
+```
+$ git remote add origin https://github.com/cc-droid/git-learn.git
+$ git push -u origin master
+```
+
+- clone代码并创建dev分支进行开发
+
+```
+$ git clone https://github.com/cc-droid/git-learn.git
+  git branch dev
+  git checkout dev
+  git add .
+  git commit -m "create dev branch && add md doc"
+```
+
+- 将dev分支添加到github
+
+```
+git remote add origin https://github.com/cc-droid/git-learn.git
+fatal: remote origin already exists.
+
+git remote add dev https://github.com/cc-droid/git-learn.git
+git push -u dev dev
+Username for 'https://github.com': cc-droid
+Password for 'https://cc-droid@github.com':
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 570 bytes | 570.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote:
+remote: Create a pull request for 'dev' on GitHub by visiting:
+remote:      https://github.com/cc-droid/git-learn/pull/new/dev
+remote:
+To https://github.com/cc-droid/git-learn.git
+ * [new branch]      dev -> dev
+Branch 'dev' set up to track remote branch 'dev' from 'dev'.
+```
+
 
 
